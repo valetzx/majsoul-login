@@ -19,6 +19,8 @@ jobs:
 
       - name: PR
         run: |
+          git config --global user.email "admin@cnb.cool"
+          git config --global user.name "maj-soul"
           git pull
           git add final.png 
           git commit -m "Snap at $(date +'%Y-%m-%d %H:%M:%S')"
