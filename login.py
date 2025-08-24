@@ -19,7 +19,7 @@ for i in range(acccounts):
     options.add_argument("--headless=new")
     driver = webdriver.Chrome(options=options)
     driver.set_window_size(1000, 720)
-    driver.get("https://game.maj-soul.net/1/")
+    driver.get("https://game.maj-soul.com/1/")
     print(f'Account {i+1} loading game...')
     sleep(20)
 
