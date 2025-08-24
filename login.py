@@ -1,13 +1,14 @@
 import sys
 from time import sleep
+import os
 
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
-
 acccounts = int(len(sys.argv[1:])/2)
 print(f'Config {acccounts} accounts')
+
 for i in range(acccounts):
     email = sys.argv[1+i]
     passwd = sys.argv[1+i+acccounts]
@@ -45,6 +46,14 @@ for i in range(acccounts):
         .click()\
         .perform()
     print('Entering game...')
-    sleep(20) #loading...
+    sleep(50)
     print('Login success')
+    
+    # 5. 截图保存为final.png
+    screenshot_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "final.png")
+    driver.save_screenshot(screenshot_path)
+    print(f'Screenshot saved to: final.png')
+    
     driver.quit()
+
+print("All accounts processed successfully! Final screenshot saved as final.png")
